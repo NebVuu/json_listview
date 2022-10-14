@@ -42,17 +42,19 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Text(
                               data![index].id.toString(),
-                              style: TextStyle(fontSize: 18),
+                              style: const TextStyle(fontSize: 18),
                             ),
                             Text(
                               data[index].title.toString(),
-                              style: TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 14),
                             ),
                           ],
                         ),
                       ),
                     );
                   });
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
             }
             return const CircularProgressIndicator();
           },
